@@ -1,0 +1,20 @@
+{
+  "name": "tcc-2026",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/josedchagas/TCC-2026#readme",
+  "bugs": {
+    "url": "https://github.com/josedchagas/TCC-2026/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josedchagas/TCC-2026.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
