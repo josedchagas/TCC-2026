@@ -1,8 +1,8 @@
 import { useState } from "react";
-import CharacterPanel from "./src/CharacterPanel";
-import StatusModal from "./src/StatusModal";
-import BattleModal from "./src/BattleModal";
-import StoryPanel from "./src/StoryPanel";
+import CharacterPanel from "./Characterpanel";
+import StatusModal from "./Statusmodal";
+import BattleModal from "./Battlemodal";
+import StoryPanel from "./Storypanel";
 import "./App.css";
 
 export default function App() {

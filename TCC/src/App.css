@@ -1,18 +1,10 @@
 .app-shell {
   min-height: 100vh;
   background-color: #15100c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
 }
 
 .app-stage {
   display: flex;
   width: 100%;
-  max-width: 72rem;
-  height: 720px;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  height: 100vh;
 }

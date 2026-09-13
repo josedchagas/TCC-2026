@@ -140,13 +140,13 @@ function Slot({ item, placeholderLabel }) {
       {item?.qty > 1 && <span className="slot__qty">{item.qty}</span>}
       {!item && placeholderLabel && (
         <span className="slot__placeholder">
-          {placeholderLabel === "helmet" && "elmo"}
-          {placeholderLabel === "weapon" && "arma"}
-          {placeholderLabel === "chest" && "peito"}
-          {placeholderLabel === "pants" && "calça"}
-          {placeholderLabel === "shield" && "escudo"}
-          {placeholderLabel === "boots" && "botas"}
-          {placeholderLabel === "ring" && "anel"}
+          {placeholderLabel === "helmet" && "Elmo"}
+          {placeholderLabel === "weapon" && "Arma"}
+          {placeholderLabel === "chest" && "Peitoral"}
+          {placeholderLabel === "pants" && "Calça"}
+          {placeholderLabel === "shield" && "Escudo"}
+          {placeholderLabel === "boots" && "Botas"}
+          {placeholderLabel === "ring" && "Anel"}
         </span>
       )}
     </div>
