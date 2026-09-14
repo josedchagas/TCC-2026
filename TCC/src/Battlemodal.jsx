@@ -1,4 +1,4 @@
-import "./Battlemodal.css";
+import "./BattleModal.css";
 
 /**
  * Tela de batalha, sobreposta ao centro da tela.
@@ -41,8 +41,8 @@ export default function BattleModal({
         </div>
 
         <div className="battle-modal__healthbars">
-          <HealthBar label="Vida do jogador" hp={playerHp} />
-          <HealthBar label={`Vida de ${enemyName}`} hp={enemyHp} align="right" />
+          <HealthBar label="Jogador" hp={playerHp} />
+          <HealthBar label={enemyName} hp={enemyHp} align="right" />
         </div>
 
         <div className="battle-modal__drops-section">

@@ -21,7 +21,7 @@
 }
 
 .battle-modal__scene {
-  @apply h-56 bg-[#1c140d] flex items-center justify-center;
+  @apply h-56 bg-[#1c140d] border-b border-[#6b4f30] flex items-center justify-center;
 }
 
 .battle-modal__scene-img {
@@ -45,7 +45,7 @@
 }
 
 .battle-modal__drops-box {
-  @apply min-h-[3.5rem] bg-[#241a10] border border-[#6b4f30] rounded-md flex items-center gap-2 px-3;
+  @apply min-h-[3.5rem] bg-[#1c140d] border border-[#6b4f30] rounded-md flex items-center gap-2 px-3;
 }
 
 .battle-modal__drops-empty {
@@ -77,5 +77,5 @@
 }
 
 .health-bar__label {
-  @apply text-[11px] mt-1 text-[#c7b48d];
+  @apply text-[11px] mt-[1px] leading-none text-[#c7b48d];
 }
