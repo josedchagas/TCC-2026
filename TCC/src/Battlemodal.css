@@ -1,150 +1,81 @@
+@reference "tailwindcss";
+
 .battle-modal-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/60;
 }
 
 .battle-modal {
-  width: 420px;
-  background-color: #3a2a1d;
-  border: 2px solid #8a2c2c;
-  border-radius: 0.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  font-family: Spectral, serif;
-  color: #e9dcc0;
+  @apply w-[420px] bg-[#3a2a1d] border-2 border-[#8a2c2c] rounded-lg shadow-2xl overflow-hidden font-[Spectral,serif] text-[#e9dcc0];
 }
 
 .battle-modal__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background-color: #241a10;
-  border-bottom: 1px solid #6b4f30;
+  @apply flex items-center justify-between px-4 py-2 bg-[#241a10] border-b border-[#6b4f30];
 }
 
 .battle-modal__title {
-  font-size: 1rem;
-  font-family: Cinzel, serif;
-  letter-spacing: 0.025em;
+  @apply text-base font-[Cinzel,serif] tracking-wide;
 }
 
 .battle-modal__close {
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.25rem;
-  border: 1px solid #6b4f30;
-  background-color: transparent;
-  color: inherit;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.battle-modal__close:hover {
-  background-color: #6b4f30;
+  @apply w-6 h-6 flex items-center justify-center rounded border border-[#6b4f30] hover:bg-[#6b4f30] transition-colors cursor-pointer;
 }
 
 .battle-modal__scene {
-  height: 14rem;
-  background-color: #1c140d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @apply h-56 bg-[#1c140d] flex items-center justify-center;
 }
 
 .battle-modal__scene-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 
 .battle-modal__scene-empty {
-  color: #7c6a4e;
-  font-size: 0.875rem;
+  @apply text-[#7c6a4e] text-sm;
 }
 
 .battle-modal__healthbars {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  padding: 0.75rem 1rem;
+  @apply grid grid-cols-2 gap-4 px-4 py-3;
 }
 
 .battle-modal__drops-section {
-  padding: 0 1rem 1rem;
+  @apply px-4 pb-4;
 }
 
 .battle-modal__drops-title {
-  font-size: 0.875rem;
-  letter-spacing: 0.025em;
-  margin-bottom: 0.5rem;
-  color: #d9c69a;
+  @apply text-sm tracking-wide mb-2 text-[#d9c69a];
 }
 
 .battle-modal__drops-box {
-  min-height: 3.5rem;
-  background-color: #241a10;
-  border: 1px solid #6b4f30;
-  border-radius: 0.375rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0 0.75rem;
+  @apply min-h-[3.5rem] bg-[#241a10] border border-[#6b4f30] rounded-md flex items-center gap-2 px-3;
 }
 
 .battle-modal__drops-empty {
-  font-size: 0.75rem;
-  color: #7c6a4e;
+  @apply text-xs text-[#7c6a4e];
 }
 
 .battle-modal__drop-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 10px;
-  color: #c7b48d;
+  @apply flex flex-col items-center text-[10px] text-[#c7b48d];
 }
 
 .battle-modal__drop-icon {
-  width: 2rem;
-  height: 2rem;
-  object-fit: contain;
+  @apply w-8 h-8 object-contain;
 }
 
 .health-bar--right {
-  text-align: right;
+  @apply text-right;
 }
 
 .health-bar__track {
-  height: 0.625rem;
-  border-radius: 9999px;
-  background-color: #1c140d;
-  border: 1px solid #6b4f30;
-  overflow: hidden;
+  @apply h-2.5 rounded-full bg-[#1c140d] border border-[#6b4f30] overflow-hidden;
 }
 
 .health-bar__fill {
-  height: 100%;
-  background: linear-gradient(to right, #8a2c2c, #c94f4f);
+  @apply h-full bg-gradient-to-r from-[#8a2c2c] to-[#c94f4f];
 }
 
 .health-bar__fill--right {
-  margin-left: auto;
+  @apply ml-auto;
 }
 
 .health-bar__label {
-  font-size: 11px;
-  margin-top: 0.25rem;
-  color: #c7b48d;
+  @apply text-[11px] mt-1 text-[#c7b48d];
 }

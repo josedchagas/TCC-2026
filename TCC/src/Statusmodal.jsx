@@ -1,4 +1,4 @@
-import "./Statusmodal.css";
+import "./StatusModal.css";
 
 const STAT_LABELS = {
   forca: "Força",
@@ -16,8 +16,10 @@ const STAT_MAX = 20;
  * - open: boolean
  * - onClose: () => void
  * - stats: { forca, destreza, inteligencia, resistencia, agilidade } (0-20)
+ * - onAddPoint: (statKey: string) => void   // opcional — chamado ao clicar no "+" de um status
+ * - availablePoints: number                 // pontos que o jogador ainda pode distribuir
  */
-export default function StatusModal({ open, onClose, stats = {} }) {
+export default function StatusModal({ open, onClose, stats = {}, onAddPoint, availablePoints = 0 }) {
   if (!open) return null;
 
   return (
@@ -39,15 +41,30 @@ export default function StatusModal({ open, onClose, stats = {} }) {
                   <span>{label}</span>
                   <span className="status-modal__row-value">{value}</span>
                 </div>
-                <div className="status-modal__bar-track">
-                  <div
-                    className="status-modal__bar-fill"
-                    style={{ width: `${Math.min(100, (value / STAT_MAX) * 100)}%` }}
-                  />
+                <div className="status-modal__row-bar-line">
+                  <div className="status-modal__bar-track">
+                    <div
+                      className="status-modal__bar-fill"
+                      style={{ width: `${Math.min(100, (value / STAT_MAX) * 100)}%` }}
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    className="status-modal__add-btn"
+                    aria-label={`Adicionar ponto em ${label}`}
+                    onClick={() => onAddPoint?.(key)}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        <div className="status-modal__points">
+          <span>Pontos disponíveis:</span>
+          <span className="status-modal__points-value">{availablePoints}</span>
         </div>
       </div>
     </div>

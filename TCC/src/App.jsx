@@ -1,8 +1,8 @@
 import { useState } from "react";
 import CharacterPanel from "./Characterpanel";
 import StatusModal from "./Statusmodal";
-import BattleModal from "./Battlemodal";
-import StoryPanel from "./Storypanel";
+import BattleModal from "./BattleModal";
+import StoryPanel from "./StoryPanel";
 import "./App.css";
 
 export default function App() {
@@ -19,7 +19,8 @@ export default function App() {
           money={128}
           inventory={[]}
           equipment={[]}
-          onOpenStatus={() => setStatusOpen(true)}
+          statusOpen={statusOpen}
+          onToggleStatus={() => setStatusOpen((v) => !v)}
         />
 
         <StoryPanel
@@ -42,6 +43,7 @@ export default function App() {
         open={statusOpen}
         onClose={() => setStatusOpen(false)}
         stats={{ forca: 8, destreza: 12, inteligencia: 6, resistencia: 10, agilidade: 9 }}
+        availablePoints={3}
       />
 
       <BattleModal

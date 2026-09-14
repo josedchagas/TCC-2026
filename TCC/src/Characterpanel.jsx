@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./CharacterPanel.css";
 
 /**
@@ -12,7 +11,8 @@ import "./CharacterPanel.css";
  * - money: number
  * - inventory: Array<{ id, icon, qty }>          // até 8 slots
  * - equipment: Array<{ id, slot, icon }>          // slot: 'helmet' | 'weapon' | 'chest' | 'pants' | 'shield' | 'boots' | 'ring'
- * - onOpenStatus: () => void
+ * - statusOpen: boolean                           // vem do App — se o StatusModal está aberto
+ * - onToggleStatus: () => void                    // avisa o App pra abrir/fechar o StatusModal
  */
 export default function CharacterPanel({
   avatarUrl,
@@ -22,15 +22,9 @@ export default function CharacterPanel({
   money = 0,
   inventory = [],
   equipment = [],
-  onOpenStatus,
+  statusOpen = false,
+  onToggleStatus,
 }) {
-  const [statusOpen, setStatusOpen] = useState(false);
-
-  const toggleStatus = () => {
-    setStatusOpen((v) => !v);
-    onOpenStatus?.();
-  };
-
   const inventorySlots = Array.from({ length: 8 }, (_, i) => inventory[i] ?? null);
 
   const equipmentLayout = [
@@ -72,7 +66,7 @@ export default function CharacterPanel({
           </p>
         </div>
 
-        <button onClick={toggleStatus} className="char-panel__status-btn">
+        <button onClick={onToggleStatus} className="char-panel__status-btn">
           {statusOpen ? "Fechar status" : "Ver status"}
         </button>
       </div>
@@ -140,13 +134,13 @@ function Slot({ item, placeholderLabel }) {
       {item?.qty > 1 && <span className="slot__qty">{item.qty}</span>}
       {!item && placeholderLabel && (
         <span className="slot__placeholder">
-          {placeholderLabel === "helmet" && "Elmo"}
-          {placeholderLabel === "weapon" && "Arma"}
-          {placeholderLabel === "chest" && "Peitoral"}
-          {placeholderLabel === "pants" && "Calça"}
-          {placeholderLabel === "shield" && "Escudo"}
-          {placeholderLabel === "boots" && "Botas"}
-          {placeholderLabel === "ring" && "Anel"}
+          {placeholderLabel === "helmet" && "elmo"}
+          {placeholderLabel === "weapon" && "arma"}
+          {placeholderLabel === "chest" && "peito"}
+          {placeholderLabel === "pants" && "calça"}
+          {placeholderLabel === "shield" && "escudo"}
+          {placeholderLabel === "boots" && "botas"}
+          {placeholderLabel === "ring" && "anel"}
         </span>
       )}
     </div>

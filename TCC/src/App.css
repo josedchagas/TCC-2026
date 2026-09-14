@@ -1,10 +1,9 @@
+@reference "tailwindcss";
+
 .app-shell {
-  min-height: 100vh;
-  background-color: #15100c;
+  @apply min-h-screen bg-[#15100c];
 }
 
 .app-stage {
-  display: flex;
-  width: 100%;
-  height: 100vh;
+  @apply flex w-full h-screen;
 }
