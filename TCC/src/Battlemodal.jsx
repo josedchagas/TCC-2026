@@ -75,7 +75,9 @@ function HealthBar({ label, hp, align = "left" }) {
           style={{ width: `${pct}%` }}
         />
       </div>
-      <p className="health-bar__label">{label}</p>
+      <p className={`health-bar__label ${align === "right" ? "health-bar__label--enemy" : "health-bar__label--player"}`}>
+        {label}
+      </p>
     </div>
   );
 }

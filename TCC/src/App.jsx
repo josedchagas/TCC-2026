@@ -1,14 +1,32 @@
 import { useState } from "react";
+import Menu from "./Menu";
 import CharacterPanel from "./Characterpanel";
 import StatusModal from "./Statusmodal";
-import BattleModal from "./BattleModal";
-import StoryPanel from "./StoryPanel";
+import BattleModal from "./Battlemodal";
+import StoryPanel from "./Storypanel";
 import "./App.css";
 
 export default function App() {
+  const [screen, setScreen] = useState("menu"); // "menu" | "game"
   const [statusOpen, setStatusOpen] = useState(false);
   const [battleOpen, setBattleOpen] = useState(false);
 
+  // Enquanto estiver na tela de menu, mostra só o Menu e para aqui.
+  if (screen === "menu") {
+    return (
+      <Menu
+        title="A Vila Esquecida"
+        subtitle="Uma jornada por terras abandonadas"
+        onPlay={() => setScreen("game")}
+        onSelectCharacter={() => {
+          // por enquanto só um placeholder — depois liga na tela de seleção de personagem
+          console.log("abrir seleção de personagem");
+        }}
+      />
+    );
+  }
+
+  // Daqui pra baixo é exatamente o App que você já tinha.
   return (
     <div className="app-shell">
       <div className="app-stage">

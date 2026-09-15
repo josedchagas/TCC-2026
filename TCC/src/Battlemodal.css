@@ -79,3 +79,11 @@
 .health-bar__label {
   @apply text-[11px] mt-[1px] leading-none text-[#c7b48d];
 }
+
+.health-bar__label--player {
+  margin-left: 6px;
+}
+
+.health-bar__label--enemy {
+  margin-right: 5px;
+}
