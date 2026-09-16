@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SaveSlots from "./SaveSlots";
+import CharacterSelect from "./Characterselect";
 import "./Menu.css";
 
 // Dados de exemplo só pra visualização — troque pelos saves reais depois.
@@ -30,6 +31,7 @@ export default function Menu({
 }) {
   const [isExiting, setIsExiting] = useState(false);
   const [savesOpen, setSavesOpen] = useState(false);
+  const [charSelectOpen, setCharSelectOpen] = useState(false);
 
   const handlePlay = () => {
     setIsExiting(true);
@@ -63,7 +65,7 @@ export default function Menu({
           <button
             type="button"
             className="menu__btn menu__btn--secondary"
-            onClick={onSelectCharacter}
+            onClick={() => setCharSelectOpen(true)}
           >
             Seleção de Personagem
           </button>
@@ -75,6 +77,16 @@ export default function Menu({
         onClose={() => setSavesOpen(false)}
         slots={EXAMPLE_SLOTS}
         onSelectSlot={(i) => console.log("carregar slot", i)}
+      />
+
+      <CharacterSelect
+        open={charSelectOpen}
+        onClose={() => setCharSelectOpen(false)}
+        onConfirm={(characterId) => {
+          console.log("personagem escolhido:", characterId);
+          setCharSelectOpen(false);
+          onSelectCharacter?.(characterId);
+        }}
       />
     </div>
   );

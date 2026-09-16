@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Menu from "./Menu";
 import CharacterPanel from "./Characterpanel";
-import StatusModal from "./Statusmodal";
-import BattleModal from "./Battlemodal";
-import StoryPanel from "./Storypanel";
+import StatusModal from "./StatusModal";
+import BattleModal from "./BattleModal";
+import StoryPanel from "./StoryPanel";
+import GameMenu from "./GameMenu";
 import "./App.css";
 
 export default function App() {
@@ -12,15 +13,16 @@ export default function App() {
   const [battleOpen, setBattleOpen] = useState(false);
 
   // Enquanto estiver na tela de menu, mostra só o Menu e para aqui.
+  // A seleção de personagem agora é um modal dentro do próprio Menu.
   if (screen === "menu") {
     return (
       <Menu
         title="A Vila Esquecida"
         subtitle="Uma jornada por terras abandonadas"
         onPlay={() => setScreen("game")}
-        onSelectCharacter={() => {
-          // por enquanto só um placeholder — depois liga na tela de seleção de personagem
-          console.log("abrir seleção de personagem");
+        onSelectCharacter={(characterId) => {
+          // chamado depois que o jogador confirma um personagem no modal
+          console.log("personagem escolhido:", characterId);
         }}
       />
     );
@@ -71,6 +73,11 @@ export default function App() {
         playerHp={{ current: 80, max: 100 }}
         enemyHp={{ current: 45, max: 100 }}
         drops={[]}
+      />
+
+      <GameMenu
+        onSave={() => console.log("salvar jogo")}
+        onExitToMenu={() => setScreen("menu")}
       />
     </div>
   );
