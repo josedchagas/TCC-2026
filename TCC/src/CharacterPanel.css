@@ -1,7 +1,27 @@
 @reference "tailwindcss";
 
 .char-panel {
-  @apply w-72 h-screen shrink-0 min-h-0 bg-[#2c2015] border-r-2 border-[#6b4f30] p-4 flex flex-col gap-4 font-[Spectral,serif] text-[#e9dcc0] overflow-y-auto box-border;
+  @apply relative w-72 h-screen shrink-0 bg-[#2c2015] border-r-2 border-[#6b4f30] font-[Spectral,serif] text-[#e9dcc0] box-border overflow-hidden;
+}
+
+.char-panel__scroll {
+  @apply h-full flex flex-col gap-4 p-4 pr-6 overflow-y-auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.char-panel__scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.char-panel__scrollbar-track {
+  @apply absolute top-2 bottom-2 right-1.5 w-1.5 rounded-full bg-[#241a10] border border-[#4a3f30];
+}
+
+.char-panel__scrollbar-thumb {
+  @apply absolute left-0 w-full rounded-full bg-[#b8923f];
 }
 
 .char-panel__avatar-block {

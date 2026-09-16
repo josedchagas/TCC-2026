@@ -41,7 +41,7 @@
 }
 
 .save-slots__scrollbar-thumb {
-  @apply absolute left-0 w-full rounded-full bg-[#b8923f];
+  @apply absolute left-0 w-full rounded-full bg-[#b8923f] ;
 }
 
 .save-slot {
