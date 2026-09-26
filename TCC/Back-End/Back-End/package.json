@@ -1,0 +1,23 @@
+{
+  "name": "rpg-backend",
+  "version": "1.0.0",
+  "description": "Back-end da API do jogo RPG (Express + Drizzle + Neon/PostgreSQL)",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "drizzle-orm": "^0.33.0",
+    "@neondatabase/serverless": "^0.9.5",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.24.2"
+  }
+}
