@@ -1,8 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { db } from "./db/index.js";
 import { sql } from "drizzle-orm";
+import { db } from "./db/index.js";
+import authRoutes from "./routes/auth.routes.js";
+import itemsRoutes from "./routes/items.routes.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,6 +28,12 @@ app.get("/health/db", async (req, res) => {
     res.status(500).json({ database: "erro ao conectar", detail: err.message });
   }
 });
+
+app.use("/auth", authRoutes);
+app.use("/items", itemsRoutes);
+
+// Precisa ser o ÚLTIMO app.use — pega qualquer erro das rotas acima.
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
